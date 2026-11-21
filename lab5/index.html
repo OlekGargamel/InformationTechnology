@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Доступная карточка товара</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <h1>Каталог товаров</h1>
+
+    <article class="card" aria-labelledby="product-title" aria-describedby="product-desc">
+      
+      <div class="card__image-wrapper">
+        <img src="images/arbuz.jpg" alt="Фотография спелого полосатого арбуза" class="card__image">
+        <span class="card__badge" aria-hidden="true">Дыня</span>
+      </div>
+
+      <div class="card__content">
+        <h2 class="card__title" id="product-title">Дыня «Медовая»</h2>
+
+        <p class="card__description" id="product-desc">
+          Сладкая, сочная, ароматная. Спешите купить, пока не укатилась!
+        </p>
+
+        <p class="card__price" aria-label="Цена товара: 150 рублей за килограмм">
+          150 ₽ / кг
+        </p>
+
+        <button class="card__button button button--primary" type="button" aria-label="Добавить дыню в корзину" onclick="addToCart()">
+          <span class="button__icon" aria-hidden="true">🛒</span>
+          <span class="button__text">Купить</span>
+        </button>
+
+        <a href="#" class="card__link link">
+          Написать продавцу<span class="visually-hidden"> про дыню</span>
+        </a>
+      </div>
+    </article>
+
+    <div aria-live="polite" class="visually-hidden" id="live-region"></div>
+  </main>
+
+  <script>
+    function addToCart() {
+      const liveRegion = document.getElementById('live-region');
+      liveRegion.textContent = 'Дыня (на самом деле арбуз) добавлена в корзину';
+      
+      setTimeout(() => {
+        liveRegion.textContent = '';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
