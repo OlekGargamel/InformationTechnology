@@ -1,0 +1,190 @@
+/* === 1. Базовые стили (Mobile First) === */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+}
+
+/* === 2. Сетка страницы (Grid) === */
+.mail {
+  display: grid;
+  min-height: 100vh;
+  /* На мобильных: шапка, список, подвал (сайдбар и просмотр скрыты) */
+  grid-template-areas:
+    "header"
+    "list"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+}
+
+.mail__header { grid-area: header; }
+.mail__list { grid-area: list; }
+.mail__view { grid-area: view; display: none; } /* Скрыто на телефонах */
+.mail__footer { grid-area: footer; }
+.mail__sidebar { display: none; } /* Скрыто на телефонах */
+
+/* === 3. Стили компонентов === */
+.header {
+  background: #fff;
+  padding: 15px 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #005ff9; /* Фирменный цвет Mail.ru */
+}
+
+.letter-list {
+  padding: 20px;
+  background: #fff;
+  border-right: 1px solid #e0e0e0;
+}
+
+.letter-list__title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* Карточка письма (Flexbox) */
+.letter-card {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.letter-card:hover {
+  background: #f9f9f9;
+}
+
+.letter-card--unread {
+  font-weight: bold;
+  background: #eef6ff;
+  border-left: 4px solid #005ff9; /* Синяя полоска */
+}
+
+.letter-card__header {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.letter-card__subject {
+  font-size: 1.1rem;
+}
+
+.letter-card__preview {
+  color: #888;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Стили для просмотра письма */
+.letter-view {
+  padding: 30px;
+  background: #fff;
+}
+
+.letter-view__subject {
+  margin-bottom: 10px;
+}
+
+.letter-view__meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.letter-view__from {
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.letter-view__body {
+  line-height: 1.6;
+}
+
+.footer {
+  padding: 15px;
+  text-align: center;
+  background: #fff;
+  color: #888;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Ссылки в сайдбаре */
+.sidebar__nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__link {
+  display: block;
+  padding: 12px 20px;
+  color: #cfd8dc;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar__link--active {
+  background: #005ff9; /* Синий цвет */
+  color: #fff;
+}
+
+/* === 4. Планшеты (от 768px) === */
+@media (min-width: 768px) {
+  .mail {
+    grid-template-areas:
+      "header header"
+      "sidebar list"
+      "footer footer";
+    grid-template-columns: 240px 1fr;
+  }
+
+  .mail__sidebar {
+    display: flex;
+    flex-direction: column;
+    background: #2c3e50; /* Темный фон сайдбара */
+    color: white;
+    padding: 20px 0;
+  }
+}
+
+/* === 5. Десктопы (от 1024px) === */
+@media (min-width: 1024px) {
+  .mail {
+    grid-template-areas:
+      "header header header"
+      "sidebar list view"
+      "footer footer footer";
+    grid-template-columns: 240px 350px 1fr;
+  }
+
+  /* Показываем область просмотра письма */
+  .mail__view {
+    display: block;
+  }
+}
