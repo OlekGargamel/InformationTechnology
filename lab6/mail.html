@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MailBox</title>
+<link rel="stylesheet" href="mail.css">
+</head>
+<body class="mail">
+
+<!-- Шапка -->
+<header class="mail__header header">
+  <div class="header__logo">MailBox</div>
+  <div class="header__user">Тагиров Э. Н.</div>
+</header>
+
+<!-- Боковое меню (Сайдбар) -->
+<aside class="mail__sidebar sidebar">
+  <nav class="sidebar__nav">
+    <a href="#" class="sidebar__link sidebar__link--active">Входящие</a>
+    <a href="#" class="sidebar__link">Отправленные</a>
+    <a href="#" class="sidebar__link">Черновики</a>
+    <a href="#" class="sidebar__link">Корзина</a>
+    <a href="#" class="sidebar__link">Спам</a>
+  </nav>
+</aside>
+
+<!-- Список писем -->
+<main class="mail__list letter-list">
+  <h1 class="letter-list__title">Входящие</h1>
+  
+  <!-- Письмо 1 (Выделенное) -->
+  <article class="letter-card letter-card--unread">
+    <div class="letter-card__header">
+      <span class="letter-card__sender">Банк "Отличный"</span>
+      <time class="letter-card__date">10:45</time>
+    </div>
+    <h2 class="letter-card__subject">Предложение о кредите</h2>
+    <p class="letter-card__preview">Уважаемый Эдгар Намикович, специально для вас...</p>
+  </article>
+
+  <!-- Письмо 2 -->
+  <article class="letter-card">
+    <div class="letter-card__header">
+      <span class="letter-card__sender">Деканат ПИЖ-б-о-26-2</span>
+      <time class="letter-card__date">Вчера</time>
+    </div>
+    <h2 class="letter-card__subject">Расписание на следующую неделю</h2>
+    <p class="letter-card__preview">Уважаемые студенты, обратите внимание на изменения...</p>
+  </article>
+
+  <!-- Письмо 3 -->
+  <article class="letter-card">
+    <div class="letter-card__header">
+      <span class="letter-card__sender">Преподаватель</span>
+      <time class="letter-card__date">12 ноя</time>
+    </div>
+    <h2 class="letter-card__subject">Защита лабораторной работы №6</h2>
+    <p class="letter-card__preview">Тагиров Эдгар, ваша работа принята. Жду на защиту...</p>
+  </article>
+</main>
+
+<!-- Область просмотра письма (появится на больших экранах) -->
+<section class="mail__view letter-view">
+  <h2 class="letter-view__subject">Предложение о кредите</h2>
+  <div class="letter-view__meta">
+    <span class="letter-view__from">От: Банк "Отличный"</span>
+    <time class="letter-view__date">22.11.2026, 10:45</time>
+  </div>
+  <div class="letter-view__body">
+    <p>Уважаемый Эдгар Намикович!</p>
+    <br>
+    <p>Специально для вас мы подготовили персональное предложение о кредите на выгодных условиях. Ставка от 5% и без скрытых комиссий.</p>
+    <br>
+    <p>С уважением, ваш банк.</p>
+  </div>
+</section>
+
+<!-- Подвал -->
+<footer class="mail__footer footer">
+  <p>&copy; 2026 MailBox. Студент: Тагиров Э. Н., гр. ПИЖ-б-о-26-2</p>
+</footer>
+
+</body>
+</html>
